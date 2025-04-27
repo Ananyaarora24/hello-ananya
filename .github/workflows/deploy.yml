@@ -1,4 +1,4 @@
-name: Deploy React App to GitHub Pages
+name: Deploy Vite React App to GitHub Pages
 
 on:
   push:
@@ -16,14 +16,14 @@ jobs:
         with:
           node-version: 18
 
-      - name: Install Dependencies
+      - name: Install dependencies
         run: npm install
 
-      - name: Build Project
+      - name: Build
         run: npm run build
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          branch: gh-pages # The branch the action should deploy to.
+          folder: dist # The folder the action should deploy.
